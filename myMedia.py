@@ -48,6 +48,6 @@ class film:
         infoFilm["Жанр"] = details[2].contents[1].strip()
         infoFilm["Продолжительность"] = details[3].contents[1].strip()
         infoFilm["Режиссёр"] = details[4].contents[1].strip()
-        infoFilm["Актёры"] = details[5].contents[1].strip()
+        infoFilm["Актёры!"] = details[5].contents[1].strip()
         infoFilm["Трейлеры_url"] = url + details[6].contents[0]["href"]
         infoFilm["фильм_url"] = url + details[7].contents[0]["href"]

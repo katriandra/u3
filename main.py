@@ -11,12 +11,12 @@ import BotGames  # бот-игры, файл BotGames.py
 from menuBot import Menu  # в этом модуле есть код, создающий экземпляры классов описывающих моё меню
 import DZ  # домашнее задание от первого урока
 
-bot = telebot.TeleBot('5207758409:AAGJ5MVwNBkinpzp6PDCyOVNCxODByUsO-4')  # Создаем экземпляр бота
-game21 = None  # класс игры в 21, экземпляр создаём только при начале игры
+bot = telebot.TeleBot('5203802538:AAEQTM0JMEOTiP1r7WrSVG3pRvK8zjdyBk4')
+game21 = None
 
 
 # -----------------------------------------------------------------------
-# Функция, обрабатывающая команды
+
 @bot.message_handler(commands="start")
 def command(message, res=False):
     txt_message = f"Привет, {message.from_user.first_name}! Я тестовый бот для курса программирования на языке Python"
@@ -32,9 +32,9 @@ def get_text_messages(message):
     chat_id = message.chat.id
     ms_text = message.text
 
-    result = goto_menu(chat_id, ms_text)  # попытаемся использовать текст как команду меню, и войти в него
+    result = goto_menu(chat_id, ms_text)
     if result == True:
-        return  # мы вошли в подменю, и дальнейшая обработка не требуется
+        return
 
     if Menu.cur_menu != None and ms_text in Menu.cur_menu.buttons:  # проверим, что команда относится к текущему меню
 
@@ -77,7 +77,7 @@ def get_text_messages(message):
         elif ms_text == "Задание-2":
             DZ.dz2(bot, chat_id)
 
-        elif ms_text == "Задание-3":
+        elif ms_text == "Задание-3!":
             DZ.dz3(bot, chat_id)
 
         elif ms_text == "Задание-4":
